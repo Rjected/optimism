@@ -174,8 +174,6 @@ github.com/elastic/gosigar v0.14.2 h1:Dg80n8cr90OZ7x+bAax/QjoW/XqTI11RmA79ZwIm9/
 github.com/elastic/gosigar v0.14.2/go.mod h1:iXRIGg2tLnu7LBdpqzyQfGDEidKCfWcCMS0WKyPWoMs=
 github.com/ethereum-optimism/go-ethereum-hdwallet v0.1.3 h1:RWHKLhCrQThMfch+QJ1Z8veEq5ZO3DfIhZ7xgRP9WTc=
 github.com/ethereum-optimism/go-ethereum-hdwallet v0.1.3/go.mod h1:QziizLAiF0KqyLdNJYD7O5cpDlaFMNZzlxYNcWsJUxs=
-github.com/ethereum-optimism/op-geth v1.101407.0-rc.1.0.20240812224053-8d99ca68bb1a h1:OK3wB7HbdhCneSowC1XZusHaLIVdXoRLuCWgXp5Tjuc=
-github.com/ethereum-optimism/op-geth v1.101407.0-rc.1.0.20240812224053-8d99ca68bb1a/go.mod h1:9pT+bF20XwCBE7WkjfRSsCg6RN6Njdbr924DtQ3+geY=
 github.com/ethereum-optimism/superchain-registry/superchain v0.0.0-20240813170044-d5be5587e58f h1:JTnVOiaYVQcXc+zgsSjnTQ18k3uOLOpch8SiPjO1eTo=
 github.com/ethereum-optimism/superchain-registry/superchain v0.0.0-20240813170044-d5be5587e58f/go.mod h1:zy9f3TNPS7pwW4msMitF83fp0Wf452tZ6+Fg6d4JyXM=
 github.com/ethereum/c-kzg-4844 v1.0.0 h1:0X1LBXxaEtYD9xsyj9B9ctQEZIpnvVDeoBx8aHEwTNA=
@@ -189,8 +187,6 @@ github.com/felixge/fgprof v0.9.3 h1:VvyZxILNuCiUCSXtPtYmmtGvb65nqXh2QFWc0Wpf2/g=
 github.com/felixge/fgprof v0.9.3/go.mod h1:RdbpDgzqYVh/T9fPELJyV7EYJuHB55UTEULNun8eiPw=
 github.com/ferranbt/fastssz v0.1.2 h1:Dky6dXlngF6Qjc+EfDipAkE83N5I5DE68bY6O0VLNPk=
 github.com/ferranbt/fastssz v0.1.2/go.mod h1:X5UPrE2u1UJjxHA8X54u04SBwdAQjG2sFtWs39YxyWs=
-github.com/fjl/memsize v0.0.2 h1:27txuSD9or+NZlnOWdKUxeBzTAUkWCVh+4Gf2dWFOzA=
-github.com/fjl/memsize v0.0.2/go.mod h1:VvhXpOYNQvB+uIk2RvXzuaQtkQJzzIx6lSBe1xv7hi0=
 github.com/flynn/go-shlex v0.0.0-20150515145356-3f9db97f8568/go.mod h1:xEzjJPgXI435gkrCt3MPfRiAkVrwSbHsst4LCFVfpJc=
 github.com/flynn/noise v1.1.0 h1:KjPQoQCEFdZDiP03phOvGi11+SVVhBG2wOWAorLsstg=
 github.com/flynn/noise v1.1.0/go.mod h1:xbMo+0i6+IGbYdJhF31t2eR1BIU0CYc12+BNAKwUTag=
@@ -681,6 +677,8 @@ github.com/raulk/go-watchdog v1.3.0/go.mod h1:fIvOnLbF0b0ZwkB9YU4mOW9Did//4vPZtD
 github.com/rivo/uniseg v0.2.0/go.mod h1:J6wj4VEh+S6ZtnVlnTBMWIodfgj8LQOQFoIToxlJtxc=
 github.com/rivo/uniseg v0.4.4 h1:8TfxU8dW6PdqD27gjM8MVNuicgxIjxpm4K7x4jp8sis=
 github.com/rivo/uniseg v0.4.4/go.mod h1:FN3SvrM+Zdj16jyLfmOkMNblXMcoc8DfTHruCPUcx88=
+github.com/rjected/op-geth v0.0.0-20240814190035-08051dff8817 h1:pPhvpAx8fV4RUwKQq5Ifttn5YGYw4qNHF2TMfOBOfD0=
+github.com/rjected/op-geth v0.0.0-20240814190035-08051dff8817/go.mod h1:V0fH4pRRyXApc2g2Q599TcIK2rWTMUzAxyYyKr3e4zI=
 github.com/rogpeppe/go-internal v1.3.0/go.mod h1:M8bDsm7K2OlrFYOpmOWEs/qY81heoFRclV5y23lUDJ4=
 github.com/rogpeppe/go-internal v1.6.1/go.mod h1:xXDCJY+GAPziupqXw64V24skbSoqbTEfhy4qGm1nDQc=
 github.com/rogpeppe/go-internal v1.9.0/go.mod h1:WtVeX8xhTBvf0smdhujwtBcq4Qrzq/fJaraNFVN+nFs=

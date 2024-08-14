@@ -90,7 +90,6 @@ require (
 	github.com/fatih/color v1.16.0 // indirect
 	github.com/felixge/fgprof v0.9.3 // indirect
 	github.com/ferranbt/fastssz v0.1.2 // indirect
-	github.com/fjl/memsize v0.0.2 // indirect
 	github.com/flynn/noise v1.1.0 // indirect
 	github.com/francoispqt/gojay v1.2.13 // indirect
 	github.com/gballet/go-libpcsclite v0.0.0-20191108122812-4678299bea08 // indirect
@@ -233,7 +232,7 @@ require (
 	rsc.io/tmplfunc v0.0.3 // indirect
 )
 
-replace github.com/ethereum/go-ethereum v1.14.7 => github.com/ethereum-optimism/op-geth v1.101407.0-rc.1.0.20240812224053-8d99ca68bb1a
+replace github.com/ethereum/go-ethereum v1.14.7 => github.com/rjected/op-geth v0.0.0-20240814190035-08051dff8817
 
 //replace github.com/ethereum/go-ethereum v1.13.9 => ../op-geth
 
