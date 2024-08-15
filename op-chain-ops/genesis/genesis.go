@@ -67,6 +67,7 @@ func NewL2Genesis(config *DeployConfig, block *types.Block) (*core.Genesis, erro
 		CancunTime:                    config.EcotoneTime(block.Time()),
 		EcotoneTime:                   config.EcotoneTime(block.Time()),
 		FjordTime:                     config.FjordTime(block.Time()),
+		PragueTime:                    config.PragueTime(block.Time()),
 		GraniteTime:                   config.GraniteTime(block.Time()),
 		InteropTime:                   config.InteropTime(block.Time()),
 		Optimism: &params.OptimismConfig{

@@ -116,6 +116,10 @@ type Config struct {
 	// Active if GraniteTime != nil && L2 block timestamp >= *GraniteTime, inactive otherwise.
 	GraniteTime *uint64 `json:"granite_time,omitempty"`
 
+	// PragueTime sets the activation time of the Prague network upgrade.
+	// Active if PragueTime != nil && L2 block timestamp >= *Prague, inactive otherwise.
+	PragueTime *uint64 `json:"prague_time,omitempty"`
+
 	// HoloceneTime sets the activation time of the Holocene network upgrade.
 	// Active if HoloceneTime != nil && L2 block timestamp >= *HoloceneTime, inactive otherwise.
 	HoloceneTime *uint64 `json:"holocene_time,omitempty"`
