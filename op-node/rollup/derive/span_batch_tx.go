@@ -199,6 +199,7 @@ func (tx *spanBatchTx) convertToFullTx(nonce, gas uint64, to *common.Address, ch
 			Value:      batchTxInner.Value,
 			Data:       batchTxInner.Data,
 			AccessList: batchTxInner.AccessList,
+			AuthList:   batchTxInner.AuthList,
 			V:          uint256.MustFromBig(V),
 			R:          uint256.MustFromBig(R),
 			S:          uint256.MustFromBig(S),
@@ -241,6 +242,7 @@ func newSpanBatchTx(tx *types.Transaction) (*spanBatchTx, error) {
 			Value:      uint256.MustFromBig(tx.Value()),
 			Data:       tx.Data(),
 			AccessList: tx.AccessList(),
+			AuthList:   tx.AuthList(),
 		}
 	default:
 		return nil, fmt.Errorf("invalid tx type: %d", tx.Type())
