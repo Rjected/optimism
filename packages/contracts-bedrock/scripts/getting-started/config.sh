@@ -118,6 +118,11 @@ if [ -n "${INTEROP_TIME_OFFSET}" ]; then
     append_with_default "l2GenesisInteropTimeOffset" "INTEROP_TIME_OFFSET" "0x0"
 fi
 
+# Activate alphanet fork
+if [ -n "${ALPHANET_TIME_OFFSET}" ]; then
+    append_with_default "l2GenesisAlphanetTimeOffset" "ALPHANET_TIME_OFFSET" "0x0"
+fi
+
 # Already forked updates
 append_with_default "l2GenesisFjordTimeOffset" "FJORD_TIME_OFFSET" "0x0"
 append_with_default "l2GenesisRegolithTimeOffset" "REGOLITH_TIME_OFFSET" "0x0"
