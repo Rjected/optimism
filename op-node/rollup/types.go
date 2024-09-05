@@ -126,6 +126,9 @@ type Config struct {
 	// Active if InteropTime != nil && L2 block timestamp >= *InteropTime, inactive otherwise.
 	InteropTime *uint64 `json:"interop_time,omitempty"`
 
+	// AlphanetTime
+	AlphanetTime *uint64 `json:"alphanet_time,omitempty"`
+
 	// Note: below addresses are part of the block-derivation process,
 	// and required to be the same network-wide to stay in consensus.
 

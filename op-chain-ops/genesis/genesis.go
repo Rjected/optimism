@@ -70,6 +70,7 @@ func NewL2Genesis(config *DeployConfig, block *types.Block) (*core.Genesis, erro
 		PragueTime:                    config.PragueTime(block.Time()),
 		GraniteTime:                   config.GraniteTime(block.Time()),
 		InteropTime:                   config.InteropTime(block.Time()),
+		AlphanetTime: 				   config.AlphanetTime(block.Time()),
 		Optimism: &params.OptimismConfig{
 			EIP1559Denominator:       eip1559Denom,
 			EIP1559Elasticity:        eip1559Elasticity,

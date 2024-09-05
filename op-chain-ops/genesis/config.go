@@ -351,6 +351,9 @@ type UpgradeScheduleDeployConfig struct {
 	// Set it to 0 to activate at genesis. Nil to disable Ecotone.
 	L2GenesisPragueTimeOffset *hexutil.Uint64 `json:"l2GenesisPragueTimeOffset,omitempty"`
 
+	// L2GenesisAlphanetTimeOffset
+	L2GenesisAlphanetTimeOffset *hexutil.Uint64 `json:"l2GenesisAlphanetTimeOffset,omitempty"`
+
 	// When Cancun activates. Relative to L1 genesis.
 	L1CancunTimeOffset *hexutil.Uint64 `json:"l1CancunTimeOffset,omitempty"`
 
@@ -389,6 +392,10 @@ func (d *UpgradeScheduleDeployConfig) EcotoneTime(genesisTime uint64) *uint64 {
 
 func (d *UpgradeScheduleDeployConfig) PragueTime(genesisTime uint64) *uint64 {
 	return offsetToUpgradeTime(d.L2GenesisPragueTimeOffset, genesisTime)
+}
+
+func (d *UpgradeScheduleDeployConfig) AlphanetTime(genesisTime uint64) *uint64 {
+	return offsetToUpgradeTime(d.L2GenesisAlphanetTimeOffset, genesisTime)
 }
 
 func (d *UpgradeScheduleDeployConfig) FjordTime(genesisTime uint64) *uint64 {
@@ -938,6 +945,7 @@ func (d *DeployConfig) RollupConfig(l1StartBlock *types.Block, l2GenesisBlockHas
 		PragueTime:             d.PragueTime(l1StartBlock.Time()),
 		GraniteTime:            d.GraniteTime(l1StartBlock.Time()),
 		InteropTime:            d.InteropTime(l1StartBlock.Time()),
+		AlphanetTime: 			d.AlphanetTime(l1StartBlock.Time()),
 		AltDAConfig:            altDA,
 	}, nil
 }
