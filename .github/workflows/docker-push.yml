@@ -33,6 +33,7 @@ jobs:
     permissions:
       packages: write
       contents: read
+    steps:
       - name: Log in to Docker
         run: |
           echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io --username ${DOCKER_USERNAME} --password-stdin
