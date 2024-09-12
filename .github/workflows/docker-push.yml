@@ -23,6 +23,7 @@ jobs:
 
   push:
     name: Tag and push all images
+    runs-on: ubuntu-20.04
     needs: build
     strategy:
       matrix:
