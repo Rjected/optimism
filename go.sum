@@ -521,6 +521,8 @@ github.com/opentracing/opentracing-go v1.2.0/go.mod h1:GxEUsuufX4nBwe+T+Wl9TAgYr
 github.com/openzipkin/zipkin-go v0.1.1/go.mod h1:NtoC/o8u3JlF1lSlyPNswIbeQH9bJTmOf0Erfk+hxe8=
 github.com/paradigmxyz/op-geth v0.0.0-20240821004537-64ba0dbcddf0 h1:6PrGe3Ust9zLyLRdpVF9HgmdnQsgkZy2Q9+j2sa9jAw=
 github.com/paradigmxyz/op-geth v0.0.0-20240821004537-64ba0dbcddf0/go.mod h1:29rbyakWPm5ATIf19M1yQJlFZDV2wV8adM5rv+A+ceI=
+github.com/paradigmxyz/op-geth v0.0.0-20240912202626-841fcd6ec768 h1:echOVIkqrRj4+1b+nM+SmYXvJXrMoqM5UQwSPSUTi6w=
+github.com/paradigmxyz/op-geth v0.0.0-20240912202626-841fcd6ec768/go.mod h1:boCyfYcCK/lDcL1JA5daLc2qgvULU1zKcVtUJ605eGc=
 github.com/pascaldekloe/goe v0.1.0/go.mod h1:lzWF7FIEvWOWxwDKqyGYQf6ZUaNfKdP144TG7ZOy1lc=
 github.com/pbnjay/memory v0.0.0-20210728143218-7b4eea64cf58 h1:onHthvaw9LFnH4t2DcNVpwGmV9E1BkGknEliJkfwQj0=
 github.com/pbnjay/memory v0.0.0-20210728143218-7b4eea64cf58/go.mod h1:DXv8WO4yhMYhSNPKjeNKa5WY9YCIEBRbNzFFPJbWO6Y=
