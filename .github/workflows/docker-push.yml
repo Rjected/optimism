@@ -15,9 +15,6 @@ jobs:
   build:
     name: Build all images
     runs-on: ubuntu-20.04
-    permissions:
-      packages: write
-      contents: read
     steps:
       - uses: actions/checkout@v4
       - name: Run make golang-docker
