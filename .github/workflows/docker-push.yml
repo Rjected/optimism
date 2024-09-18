@@ -49,11 +49,11 @@ jobs:
         uses: actions/download-artifact@v4
         with:
           name: op-images
-          path: ${{ matrix.image }}.tar
+          path: op-images
 
       - name: Import image
         run: |
-          docker image import ${{ matrix.image }}.tar
+          docker image import op-images/${{ matrix.image }}.tar
 
       - name: Log in to Docker
         run: |
