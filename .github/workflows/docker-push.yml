@@ -52,7 +52,7 @@ jobs:
           path: ${{ matrix.image }}.tar
 
       - name: Import image
-        run | docker image import ${{ matrix.image }}.tar
+        run: | docker image import ${{ matrix.image }}.tar
 
       - name: Log in to Docker
         run: |
