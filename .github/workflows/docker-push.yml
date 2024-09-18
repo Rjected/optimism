@@ -15,11 +15,24 @@ jobs:
   build:
     name: Build all images
     runs-on: ubuntu-20.04
+    permissions:
+      packages: write
+      contents: read
     steps:
       - uses: actions/checkout@v4
       - name: Run make golang-docker
         run: |
           make golang-docker
+
+      - name: Put all docker images in temp dir
+        run: |
+          docker image ls | grep 'us-.*oplabs.*latest' | sed 's/latest.*//' | xargs -L1 -I % echo 'docker image save % -o /tmp/%.tar' | sed 's:/tmp/.*/\(.*\.tar\):/tmp/\1:' | bash
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: op-images
+          path: /tmp/op-*.tar
 
   push:
     name: Tag and push all images
@@ -32,6 +45,15 @@ jobs:
       packages: write
       contents: read
     steps:
+      - name: Download built artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: op-images
+          path: ${{ matrix.image }}.tar
+
+      - name: Import image
+        run | docker image import ${{ matrix.image }}.tar
+
       - name: Log in to Docker
         run: |
           echo "${{ secrets.GITHUB_TOKEN }}" | docker login ghcr.io --username ${DOCKER_USERNAME} --password-stdin
