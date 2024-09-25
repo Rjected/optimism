@@ -53,7 +53,7 @@ jobs:
 
       - name: Import image
         run: |
-          docker image import op-images/${{ matrix.image }}.tar
+          docker image load op-images/${{ matrix.image }}.tar
 
       - name: Log in to Docker
         run: |
