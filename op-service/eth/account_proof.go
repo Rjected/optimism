@@ -33,34 +33,9 @@ type AccountResult struct {
 
 // Verify an account (and optionally storage) proof from the getProof RPC. See https://eips.ethereum.org/EIPS/eip-1186
 func (res *AccountResult) Verify(stateRoot common.Hash) error {
-	// verify storage proof values, if any, against the storage trie root hash of the account
-	for i, entry := range res.StorageProof {
-		// load all MPT nodes into a DB
-		db := memorydb.New()
-		for j, encodedNode := range entry.Proof {
-			nodeKey := encodedNode
-			if len(encodedNode) >= 32 { // small MPT nodes are not hashed
-				nodeKey = crypto.Keccak256(encodedNode)
-			}
-			if err := db.Put(nodeKey, encodedNode); err != nil {
-				return fmt.Errorf("failed to load storage proof node %d of storage value %d into mem db: %w", j, i, err)
-			}
-		}
-		path := crypto.Keccak256(entry.Key[:])
-		val, err := trie.VerifyProof(res.StorageHash, path, db)
-		if err != nil {
-			return fmt.Errorf("failed to verify storage value %d with key %s (path %x) in storage trie %s: %w", i, entry.Key, path, res.StorageHash, err)
-		}
-		if val == nil && entry.Value.ToInt().Cmp(common.Big0) == 0 { // empty storage is zero by default
-			continue
-		}
-		comparison, err := rlp.EncodeToBytes(entry.Value.ToInt().Bytes())
-		if err != nil {
-			return fmt.Errorf("failed to encode storage value %d with key %s (path %x) in storage trie %s: %w", i, entry.Key, path, res.StorageHash, err)
-		}
-		if !bytes.Equal(val, comparison) {
-			return fmt.Errorf("value %d in storage proof does not match proven value at key %s (path %x)", i, entry.Key, path)
-		}
+	err := res.VerifyStorageRoot()
+	if err != nil {
+		return err
 	}
 
 	accountClaimed := []any{uint64(res.Nonce), res.Balance.ToInt().Bytes(), res.StorageHash, res.CodeHash}
@@ -92,4 +67,38 @@ func (res *AccountResult) Verify(stateRoot common.Hash) error {
 			"  proof:   %x", accountClaimedValue, accountProofValue)
 	}
 	return err
+}
+
+// Verify an account storage proof from the getProof RPC.
+func (res *AccountResult) VerifyStorageRoot() error {
+	// verify storage proof values, if any, against the storage trie root hash of the account
+	for i, entry := range res.StorageProof {
+		// load all MPT nodes into a DB
+		db := memorydb.New()
+		for j, encodedNode := range entry.Proof {
+			nodeKey := encodedNode
+			if len(encodedNode) >= 32 { // small MPT nodes are not hashed
+				nodeKey = crypto.Keccak256(encodedNode)
+			}
+			if err := db.Put(nodeKey, encodedNode); err != nil {
+				return fmt.Errorf("failed to load storage proof node %d of storage value %d into mem db: %w", j, i, err)
+			}
+		}
+		path := crypto.Keccak256(entry.Key[:])
+		val, err := trie.VerifyProof(res.StorageHash, path, db)
+		if err != nil {
+			return fmt.Errorf("failed to verify storage value %d with key %s (path %x) in storage trie %s: %w", i, entry.Key, path, res.StorageHash, err)
+		}
+		if val == nil && entry.Value.ToInt().Cmp(common.Big0) == 0 { // empty storage is zero by default
+			continue
+		}
+		comparison, err := rlp.EncodeToBytes(entry.Value.ToInt().Bytes())
+		if err != nil {
+			return fmt.Errorf("failed to encode storage value %d with key %s (path %x) in storage trie %s: %w", i, entry.Key, path, res.StorageHash, err)
+		}
+		if !bytes.Equal(val, comparison) {
+			return fmt.Errorf("value %d in storage proof does not match proven value at key %s (path %x)", i, entry.Key, path)
+		}
+	}
+	return nil
 }
